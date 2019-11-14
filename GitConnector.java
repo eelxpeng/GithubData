@@ -68,11 +68,7 @@ public class GitConnector implements AutoCloseable {
             e.printStackTrace();
             return false;
         }
-        try {
-            if (repository.getBranch() == null) {
-                return false;
-            }
-        } catch (final IOException e) {
+        if (repository.getBranch() == null) {
             return false;
         }
         git = new Git(repository);
