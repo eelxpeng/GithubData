@@ -64,12 +64,11 @@ public class GitConnector implements AutoCloseable {
                     // variables
                     .findGitDir() // scan up the file system tree
                     .build();
+            if (repository.getBranch() == null) {
+                return false;
+            }
         } catch (final IOException e) {
             e.printStackTrace();
-            return false;
-        }
-        if (repository.getBranch() == null) {
-            repository.setNull();
             return false;
         }
         git = new Git(repository);
