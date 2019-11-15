@@ -69,6 +69,7 @@ public class GitConnector implements AutoCloseable {
             return false;
         }
         if (repository.getBranch() == null) {
+            repository.setNull();
             return false;
         }
         git = new Git(repository);
